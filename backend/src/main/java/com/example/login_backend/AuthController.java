@@ -23,10 +23,10 @@ public class AuthController {
         // ID는 "test"이고, 비밀번호는 "1234"인지 확인합니다.
         // ⚠️ 중요: 문자열 비교는 '=='가 아닌 '.equals()'를 사용해야 합니다.
         if ("test".equals(id) && "1234".equals(password)) {
-            System.out.println("로그인 성공!");
+            System.out.println("로그인 성공");
             return true; // 일치하면 true 반환
         } else {
-            System.out.println("로그인 실패!");
+            System.out.println("로그인 실패");
             return false; // 일치하지 않으면 false 반환
         }
     }
