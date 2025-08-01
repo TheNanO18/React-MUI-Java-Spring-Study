@@ -8,8 +8,8 @@ import {
   FormControlLabel,
   Checkbox,
 } from '@mui/material';
-import backgroundImage from '../assets/background.jpg';
-import { useLogin } from '../hooks/useLogin';
+import backgroundImage from '../../assets/background.jpg';
+import { useLogin } from '../../hooks/useLogin';
 
 function Login() {
   // 모든 로직과 상태는 useLogin 훅 한 줄로 가져옵니다.

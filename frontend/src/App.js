@@ -1,10 +1,12 @@
 import React from 'react';
 import {Routes, Route} from 'react-router-dom';
-import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
+import Login from './pages/Login/Login';
+import Dashboard from './pages/Dashboard/Dashboard';
 import backgroundImage from './assets/background.jpg';
 import { AuthProvider }  from './context/AuthContext';
 import ProtectedRoute from './ProtectedRoute';
+import DashboardHome from './pages/Dashboard/DashboardHome';
+import UserManagement from './pages/Dashboard/UserManagement';
 
 function App() {
   return (
@@ -20,12 +22,19 @@ function App() {
     <AuthProvider>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/dashboard" 
-              element={
-              <ProtectedRoute>
-                <Dashboard />
-              </ProtectedRoute>
-            } />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        >
+          {/* 아래가 중첩 라우트 설정입니다. */}
+          <Route index element={<DashboardHome />} /> {/* /dashboard 경로 */}
+          <Route path="users" element={<UserManagement />} /> {/* /dashboard/users 경로 */}
+          {/* <Route path="stats" element={<StatsPage />} /> ... */}
+        </Route>
       </Routes>
     </AuthProvider>
     </div>
