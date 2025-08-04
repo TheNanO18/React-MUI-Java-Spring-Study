@@ -4,16 +4,24 @@ import { useAuth } from '../context/AuthContext';
 import { useRememberId } from './useRememberId';
 
 export function useLogin() {
-  const { id, rememberId, handleIdChange, handleRememberIdChange } = useRememberId();
+  const { id, setId, rememberId, setRememberId } = useRememberId();
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
   const { login } = useAuth();
 
   const handleLogin = async () => {
+    if (rememberId) {
+      localStorage.setItem('rememberedId', id);
+    } else {
+      localStorage.removeItem('rememberedId');
+      setId('');
+    }
+
     if (!id || !password) {
       alert('아이디와 비밀번호를 입력해주세요.');
       return;
     }
+
     try {
       const response = await fetch('http://localhost:8080/login', {
         method: 'POST',
@@ -45,14 +53,13 @@ export function useLogin() {
     handleLogin();
   };
 
-  // 컴포넌트에서 필요한 모든 것을 반환
   return {
     id,
     password,
     rememberId,
+    setId,
     setPassword,
-    handleIdChange,
-    handleRememberIdChange,
+    setRememberId,
     handleSubmit,
   };
 }

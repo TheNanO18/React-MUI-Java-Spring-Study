@@ -12,14 +12,13 @@ import backgroundImage from '../../assets/background.jpg';
 import { useLogin } from '../../hooks/useLogin';
 
 function Login() {
-  // 모든 로직과 상태는 useLogin 훅 한 줄로 가져옵니다.
   const {
     id,
     password,
     rememberId,
+    setId,
     setPassword,
-    handleIdChange,
-    handleRememberIdChange,
+    setRememberId,
     handleSubmit,
   } = useLogin();
 
@@ -100,7 +99,7 @@ function Login() {
               fullWidth
               margin="normal"
               value={id}
-              onChange={handleIdChange}
+              onChange={(e) => setId(e.target.value)} 
               sx={{
                 '& .MuiInputBase-root': { backgroundColor: '#fff' },
                 '& label': { color: '#1976d2' },
@@ -152,7 +151,7 @@ function Login() {
                     value="remember"
                     color="primary"
                     checked={rememberId}
-                    onChange={handleRememberIdChange}
+                    onChange={(e) => setRememberId(e.target.checked)}
                   />
                 }
                 label="Remember ID"
