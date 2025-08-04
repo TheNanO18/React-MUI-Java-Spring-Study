@@ -8,6 +8,7 @@ import ProtectedRoute    from './ProtectedRoute';
 import DashboardHome     from './pages/Dashboard/DashboardHome';
 import UserManagement    from './pages/Dashboard/UserManagement';
 import Setting           from './pages/Dashboard/Setting';
+import DynamicParshing   from './pages/Dashboard/DynamicParshing';
 
 function App() {
   return (
@@ -32,9 +33,10 @@ function App() {
           }
         >
           {/* 아래가 중첩 라우트 설정입니다. */}
-          <Route index element={<DashboardHome />} /> {/* /dashboard 경로 */}
-          <Route path="users" element={<UserManagement />} /> {/* /dashboard/users 경로 */}
-          <Route path="setting" element={<Setting />} /> {/* /dashboard/users 경로 */}
+          <Route index element={<DashboardHome />} />           {/* /dashboard 경로 */}
+          <Route path="users"           element={<UserManagement />} />         {/* /dashboard/users 경로 */}
+          <Route path="setting"         element={<Setting />} />                {/* /dashboard/setting 경로 */}
+          <Route path="dynamicparshing" element={<DynamicParshing />} />        {/* /dashboard/dynamicparshing 경로 */}
         </Route>
       </Routes>
     </AuthProvider>

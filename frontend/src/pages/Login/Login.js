@@ -119,9 +119,9 @@ function Login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               sx={{
-                '& .MuiInputBase-root': { backgroundColor: '#fff' },
-                '& label': { color: '#1976d2' },
-                '& .MuiOutlinedInput-root': {
+                  '& .MuiInputBase-root': { backgroundColor: '#fff' },
+                  '& label': { color: '#1976d2' },
+                  '& .MuiOutlinedInput-root': {
                   '& fieldset': { borderColor: '#1976d2' },
                   '&:hover fieldset': { borderColor: '#1565c0' },
                   '&.Mui-focused fieldset': { borderColor: '#0d47a1' },

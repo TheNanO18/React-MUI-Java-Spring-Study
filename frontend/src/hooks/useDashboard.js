@@ -2,9 +2,10 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // 아이콘들을 가져옵니다.
-import HomeIcon from '@mui/icons-material/Home';
-import PeopleIcon from '@mui/icons-material/People';
+import HomeIcon        from '@mui/icons-material/Home';
+import PeopleIcon      from '@mui/icons-material/People';
 import Brightness5Icon from '@mui/icons-material/Brightness5';
+import SwapHorizIcon   from '@mui/icons-material/SwapHoriz';
 
 export function useDashboard() {
   const [open, setOpen] = useState(false);
@@ -19,12 +20,13 @@ export function useDashboard() {
   };
 
   const topMenuItems = [
-    { text: 'Home',          icon: <HomeIcon />,      path: '/dashboard' },
-    { text: 'User Management', icon: <PeopleIcon />,    path: '/dashboard/users' },
+    { text: 'Home',             icon: <HomeIcon />,      path: '/dashboard' },
+    { text: 'User Management',  icon: <PeopleIcon />,    path: '/dashboard/users' },
+    { text: 'Dynamic Parshing', icon: <SwapHorizIcon />, path: '/dashboard/dynamicparshing' },
   ];
 
    const bottomMenuItems = [
-    { text: 'Setting',       icon: <Brightness5Icon />, path: '/dashboard/setting' },
+    { text: 'Setting', icon: <Brightness5Icon />, path: '/dashboard/setting' },
   ];
 
   const handleMenuClick = (path) => {
