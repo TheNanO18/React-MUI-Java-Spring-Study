@@ -13,8 +13,8 @@ function UserManagement() {
 
   return (
     <div>
-      <Typography variant="h4" gutterBottom>
-        사용자 로그인 정보
+      <Typography variant="h4" gutterBottom sx={{ color: '#1976d2' }}>
+        User Info
       </Typography>
       {/* UserTable에는 실제 데이터 목록인 data.content를 넘겨줍니다. */}
       <UserTable users={data.content} />

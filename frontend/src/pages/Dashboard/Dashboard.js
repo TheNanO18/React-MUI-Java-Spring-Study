@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
-import { Outlet } from 'react-router-dom'; // useNavigate는 훅으로 옮겼으므로 Outlet만 필요
+import { Outlet } from 'react-router-dom';
 import Box from '@mui/material/Box';
-import MuiDrawer from '@mui/material/Drawer'; // MuiDrawer는 이렇게 직접 가져와야 합니다.
-import MuiAppBar from '@mui/material/AppBar'; // MuiAppBar도 이렇게 직접 가져와야 합니다.
+import MuiDrawer from '@mui/material/Drawer';
+import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -93,7 +93,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 export default function Dashboard() {
   const theme = useTheme();
   // 로직은 모두 이 훅에서 가져옵니다.
-  const { open, handleDrawerOpen, handleDrawerClose, menuItems, handleMenuClick } = useDashboard();
+  const { open, handleDrawerOpen, handleDrawerClose, topMenuItems, bottomMenuItems, handleMenuClick } = useDashboard();
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -115,33 +115,53 @@ export default function Dashboard() {
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-          </IconButton>
-        </DrawerHeader>
-        <Divider />
-        <List>
-          {menuItems.map((item) => (
-            <ListItem key={item.text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                onClick={() => handleMenuClick(item.path)}
-                sx={{ minHeight: 48, justifyContent: open ? 'initial' : 'center', px: 2.5 }}
-              >
-                <ListItemIcon
-                  sx={{ minWidth: 0, mr: open ? 3 : 'auto', justifyContent: 'center' }}
-                >
-                  {item.icon}
-                </ListItemIcon>
-                <ListItemText primary={item.text} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
+        {/* Drawer 내부에 Box를 추가하여 flexbox 레이아웃을 적용 */}
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            height: '100%',
+          }}
+        >
+          <div>
+            <DrawerHeader>
+              <IconButton onClick={handleDrawerClose}>
+                {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+              </IconButton>
+            </DrawerHeader>
+            <Divider />
+            {/* 상단 메뉴 리스트 */}
+            <List>
+              {topMenuItems.map((item) => (
+                <ListItem key={item.text} disablePadding sx={{ display: 'block' }}>
+                  <ListItemButton onClick={() => handleMenuClick(item.path)} /* ... */ >
+                    <ListItemIcon /* ... */ >{item.icon}</ListItemIcon>
+                    <ListItemText primary={item.text} sx={{ opacity: open ? 1 : 0 }} />
+                  </ListItemButton>
+                </ListItem>
+              ))}
+            </List>
+          </div>
+
+          {/* 하단 메뉴 리스트 */}
+          <div style={{ marginTop: 'auto' }}>
+            <Divider />
+            <List>
+              {bottomMenuItems.map((item) => (
+                <ListItem key={item.text} disablePadding sx={{ display: 'block' }}>
+                  <ListItemButton onClick={() => handleMenuClick(item.path)} /* ... */ >
+                    <ListItemIcon /* ... */ >{item.icon}</ListItemIcon>
+                    <ListItemText primary={item.text} sx={{ opacity: open ? 1 : 0 }} />
+                  </ListItemButton>
+                </ListItem>
+              ))}
+            </List>
+          </div>
+        </Box>
       </Drawer>
+
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        {/* 이 부분에 중첩된 페이지의 내용이 렌더링됩니다. */}
         <Outlet />
       </Box>
     </Box>
