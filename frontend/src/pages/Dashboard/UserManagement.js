@@ -17,7 +17,7 @@ function UserManagement() {
         User Info
       </Typography>
       {/* UserTable에는 실제 데이터 목록인 data.content를 넘겨줍니다. */}
-      <UserTable users={data.content} />
+      <UserTable users={data.content || []} />
 
       {/* 페이지 이동 버튼 */}
       <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
