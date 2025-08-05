@@ -6,6 +6,7 @@ import HomeIcon        from '@mui/icons-material/Home';
 import PeopleIcon      from '@mui/icons-material/People';
 import Brightness5Icon from '@mui/icons-material/Brightness5';
 import SwapHorizIcon   from '@mui/icons-material/SwapHoriz';
+import AutorenewIcon   from '@mui/icons-material/Autorenew';
 
 export function useDashboard() {
   const [open, setOpen] = useState(false);
@@ -23,6 +24,8 @@ export function useDashboard() {
     { text: 'Home',             icon: <HomeIcon />,      path: '/dashboard' },
     { text: 'User Management',  icon: <PeopleIcon />,    path: '/dashboard/users' },
     { text: 'Dynamic Parshing', icon: <SwapHorizIcon />, path: '/dashboard/dynamicparshing' },
+    { text: 'Encyption',        icon: <SwapHorizIcon />, path: '/dashboard/encryption' },
+    { text: 'Decryption',       icon: <AutorenewIcon />, path: '/dashboard/decryption' },
   ];
 
    const bottomMenuItems = [

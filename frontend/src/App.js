@@ -9,6 +9,8 @@ import DashboardHome     from './pages/Dashboard/DashboardHome';
 import UserManagement    from './pages/Dashboard/UserManagement';
 import Setting           from './pages/Dashboard/Setting';
 import DynamicParshing   from './pages/Dashboard/DynamicParshing';
+import Encryption        from './pages/Dashboard/Encryption';
+import Decryption        from './pages/Dashboard/Decryption';
 
 function App() {
   return (
@@ -37,6 +39,8 @@ function App() {
           <Route path="users"           element={<UserManagement />} />         {/* /dashboard/users 경로 */}
           <Route path="setting"         element={<Setting />} />                {/* /dashboard/setting 경로 */}
           <Route path="dynamicparshing" element={<DynamicParshing />} />        {/* /dashboard/dynamicparshing 경로 */}
+          <Route path="encryption"      element={<Encryption />} />             {/* /dashboard/encryption 경로 */}
+          <Route path="decryption"      element={<Decryption />} />             {/* /dashboard/decryption 경로 */}
         </Route>
       </Routes>
     </AuthProvider>
