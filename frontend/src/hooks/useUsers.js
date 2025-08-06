@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 
 export function useUsers() {
-  const [data, setData] = useState({ content: [], totalPages: 0 }); // 데이터 구조 변경
-  const [page, setPage] = useState(0); // 현재 페이지 상태
+  const [data, setData]       = useState({ content: [], totalPages: 0 }); // 데이터 구조 변경
+  const [page, setPage]       = useState(0); // 현재 페이지 상태
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

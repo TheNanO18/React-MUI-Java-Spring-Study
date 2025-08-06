@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
-import { Box } from '@mui/material';
-import dayjs from 'dayjs'; // dayjs 임포트
+import { Box }             from '@mui/material';
+import dayjs               from 'dayjs';
 
-// MUI Date Picker 관련 컴포넌트 임포트
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
+import { AdapterDayjs }         from '@mui/x-date-pickers/AdapterDayjs';
+import { DateCalendar }         from '@mui/x-date-pickers/DateCalendar';
 
 function DashboardHome() {
-  // 달력의 선택된 날짜를 관리하기 위한 state
-  const [value, setValue] = useState(dayjs()); // 오늘 날짜로 초기화
+  const [value, setValue] = useState(dayjs());
 
   return (
     <div>
@@ -26,14 +24,13 @@ function DashboardHome() {
         bgcolor="gray"
         p={2}
       >
-        {/* DateCalendar는 반드시 LocalizationProvider로 감싸야 합니다. */}
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DateCalendar 
             value={value} 
             onChange={(newValue) => setValue(newValue)} 
             sx={{
-              transform: 'scale(1.5) translateY(-20%)', // 1.2배 확대
-              transformOrigin: 'top right', // 오른쪽 위를 기준으로 확대
+              transform: 'scale(1.5) translateY(-20%)',
+              transformOrigin: 'top right',
             }}
           />
         </LocalizationProvider>

@@ -8,15 +8,15 @@ import {
   Button,
   Alert,
 } from '@mui/material';
-import SaveIcon from '@mui/icons-material/Save';
+import SaveIcon  from '@mui/icons-material/Save';
 import PowerIcon from '@mui/icons-material/Power';
 
 function Setting() {
-  const [dbHost, setDbHost] = useState('localhost:5432/postgres');
-  const [dbUser, setDbUser] = useState('postgres');
+  const [dbHost, setDbHost]         = useState('localhost:5432/postgres');
+  const [dbUser, setDbUser]         = useState('postgres');
   const [dbPassword, setDbPassword] = useState('');
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading]     = useState(false);
   const [alertInfo, setAlertInfo] = useState({ show: false, severity: 'success', message: '' });
 
   const handleTestConnection = async () => {

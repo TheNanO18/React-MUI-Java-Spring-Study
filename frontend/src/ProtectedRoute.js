@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
-import { useAuth } from './context/AuthContext';
+import { useAuth }  from './context/AuthContext';
 
 const ProtectedRoute = ({ children }) => {
     const { isLoggedIn } = useAuth(); // AuthContext에서 로그인 상태를 가져옵니다.

@@ -1,7 +1,11 @@
 import React from 'react';
-import { Typography, CircularProgress, Box, Button, ButtonGroup } from '@mui/material';
-import { useUsers } from '../../hooks/useUsers';
-import UserTable from '../../components/UserTable';
+import { Typography, 
+         CircularProgress, 
+         Box, 
+         Button, 
+         ButtonGroup } from '@mui/material';
+import { useUsers }    from '../../hooks/useUsers';
+import UserTable       from '../../components/UserTable';
 
 function UserManagement() {
   // 훅에서 data, page, setPage 등을 받아옵니다.
