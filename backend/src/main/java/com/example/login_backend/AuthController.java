@@ -14,7 +14,7 @@ public class AuthController {
     public boolean handleLogin(@RequestBody LoginRequest loginRequest) {
         // @RequestBody: React가 보낸 JSON 데이터를 LoginRequest 객체로 자동 변환해줍니다.
 
-        String id = loginRequest.getId();
+        String id       = loginRequest.getId();
         String password = loginRequest.getPassword();
 
         // 서버 콘솔에 수신된 ID를 출력하여 확인
