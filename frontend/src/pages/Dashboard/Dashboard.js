@@ -19,10 +19,7 @@ import ListItemIcon         from '@mui/material/ListItemIcon';
 import ListItemText         from '@mui/material/ListItemText';
 import { useDashboard }     from '../../hooks/useDashboard';
 
-// Styled-Component 부분은 MUI 문서 그대로 사용 (수정 없음)
 const drawerWidth = 240;
-// ... (openedMixin, closedMixin, DrawerHeader, AppBar, Drawer 코드는 그대로 둡니다)
-// (이전 답변에 있던 코드를 그대로 사용하시면 됩니다.)
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
@@ -50,7 +47,6 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'flex-end',
   padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
   ...theme.mixins.toolbar,
 }));
 
@@ -92,7 +88,6 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 export default function Dashboard() {
   const theme = useTheme();
-  // 로직은 모두 이 훅에서 가져옵니다.
   const { open, handleDrawerOpen, handleDrawerClose, topMenuItems, bottomMenuItems, handleMenuClick } = useDashboard();
 
   return (

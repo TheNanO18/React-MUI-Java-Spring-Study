@@ -86,7 +86,16 @@ function Setting() {
   };
 
   return (
-    <Paper sx={{ p: 4, maxWidth: 600, margin: 'auto' }}>
+    <Paper sx={{ 
+        p: 4, 
+        maxWidth: 600, 
+        position: 'fixed',             // 요소를 화면에 고정
+        top: 100,                      // 화면 상단에서 24px 떨어짐
+        left: 100,                     // 화면 우측에서 24px 떨어짐
+        zIndex: 1300,                  // 다른 요소들 위에 표시되도록 z-index 설정 (MUI Modal 기본값이 1300)
+        backgroundColor: '#ffffffff'
+      }}
+    >
       <Stack spacing={3}>
         <Typography variant="h5">데이터베이스 설정</Typography>
 
@@ -132,6 +141,16 @@ function Setting() {
           >
             Save and Restart
           </Button>
+        </Box>
+
+        <Box sx={{ 
+          position: 'fixed', // 요소를 화면에 고정
+          top: 500,          // 화면 상단에서 24px 떨어짐
+          left: 80,          // 화면 우측에서 24px 떨어짐
+          zIndex: 1300       // 다른 요소들 위에 표시되도록 z-index 설정 (MUI Modal 기본값이 1300)
+        }}
+        >
+          <h1 style={{ color: 'red' }}>Key Management 기간 설정 영역</h1>
         </Box>
       </Stack>
     </Paper>
